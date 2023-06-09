@@ -2,13 +2,14 @@
 <html>
 <head>
   <title>Word Count App</title>
-  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
   <h1>Word Count App</h1>
   <div>
     <label for="urlInput">Enter Website URL:</label>
-    <input type="text" id="urlInput">
+    <input type="text" id="urlInput" placeholder="enter the website link">
     <button id="getWordCountButton">Get Word Count</button>
   </div>
   <div id="resultContainer">
@@ -30,6 +31,7 @@
       </tbody>
     </table>
   </div>
+</div>
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,77 @@
+.container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"] {
+  padding: 5px;
+  width: 300px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#getWordCountButton{
+
+  padding: 10px 20px;
+  background-color: #001df5;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+
+}
+
+#resultContainer {
+  margin-top: 20px;
+}
+
+#wordCount {
+  font-weight: bold;
+}
+
+#historyContainer {
+  margin-top: 20px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  text-align: left;
+}
+
+#historyBody tr:hover {
+  background-color: #f5f5f5;
+}
