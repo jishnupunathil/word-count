@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Word Count App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Word Count App</h1>
+  <div>
+    <label for="urlInput">Enter Website URL:</label>
+    <input type="text" id="urlInput">
+    <button id="countButton">Get Word Count</button>
+  </div>
+  <div id="resultContainer">
+    <h2>Word Count:</h2>
+    <p id="wordCount"></p>
+  </div>
+  <div id="historyContainer">
+    <h2>Search History:</h2>
+    <table id="historyTable">
+      <thead>
+        <tr>
+          <th>URL</th>
+          <th>Count</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="historyBody">
+        <!-- Table rows will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
