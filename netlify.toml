@@ -1,0 +1,3 @@
+[build]
+command = "npm install && npm run build"
+publish = "public" # Adjust this value based on your project structure
