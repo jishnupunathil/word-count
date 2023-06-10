@@ -24,7 +24,6 @@ function saveWordCount(url, wordCount) {
     .then(response => {
       if (response.ok) {
         console.log('Word count saved successfully');
-        // Display the updated word count history
         getWordCountHistory();
       } else {
         console.error('Error saving word count');
@@ -35,7 +34,7 @@ function saveWordCount(url, wordCount) {
     });
 }
 
-// Function to remove word count entry
+// remove word count entry
 function removeWordCount(url, count) {
   fetch('/api/wordcount', {
     method: 'DELETE',
@@ -47,7 +46,6 @@ function removeWordCount(url, count) {
     .then(response => {
       if (response.ok) {
         console.log('Word count removed successfully');
-        // Refresh the word count history
         getWordCountHistory();
       } else {
         console.error('Error removing word count');
@@ -58,7 +56,7 @@ function removeWordCount(url, count) {
     });
 }
 
-// Function to display the word count history on the webpage
+//display the word count history on the webpage
 function displayWordCountHistory(wordCounts) {
   const historyBody = document.getElementById('historyBody');
   historyBody.innerHTML = '';
@@ -76,7 +74,7 @@ function displayWordCountHistory(wordCounts) {
   });
 }
 
-// Function to fetch the word count history from the server
+//fetch the word count history from the server
 function getWordCountHistory() {
   fetch('/api/history')
     .then(response => response.json())
@@ -89,7 +87,7 @@ function getWordCountHistory() {
 }
 
 
-// Function to display the media details on the webpage
+//display the media details on the webpage
 function displayMediaDetails(mediaDetails) {
   const mediaList = document.getElementById('mediaList');
   mediaList.innerHTML = '';
@@ -98,13 +96,13 @@ function displayMediaDetails(mediaDetails) {
     const mediaElement = document.createElement(media.mediaType);
     mediaElement.src = media.src;
     mediaElement.alt = media.alt;
-    mediaElement.classList.add('media-item'); // Add CSS class
+    mediaElement.classList.add('media-item');
 
     mediaList.appendChild(mediaElement);
   });
 }
 
-// Function to fetch the media details from the server
+//fetch the media details from the server
 function getMediaDetails(url) {
   fetch(`/api/media?url=${encodeURIComponent(url)}`)
     .then(response => response.json())
@@ -116,7 +114,7 @@ function getMediaDetails(url) {
     });
 }
 
-// Function to handle the button click event
+// handle the button click event
 function handleButtonClick() {
   const urlInput = document.getElementById('urlInput');
   const url = urlInput.value;
@@ -128,24 +126,17 @@ function handleButtonClick() {
 
   getWordCount(url, wordCount => {
     saveWordCount(url, wordCount);
-
-    // Display the word count in the <h2> tag
     const wordCountElement = document.getElementById('wordCount');
     wordCountElement.textContent = wordCount;
-
-    // Fetch and display the media details
     getMediaDetails(url);
   });
 }
 
-// Function to initialize the webpage
+// initialize the webpage
 function initialize() {
   const button = document.getElementById('getWordCountButton');
   button.addEventListener('click', handleButtonClick);
-
   getWordCountHistory();
-
-  // Event listener for click events on the table
   document.getElementById('historyTable').addEventListener('click', function (event) {
     const clickedElement = event.target;
     if (clickedElement.classList.contains('removeButton')) {
