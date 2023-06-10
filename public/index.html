@@ -6,32 +6,38 @@
 </head>
 <body>
   <div class="container">
-  <h1>Word Count App</h1>
-  <div>
-    <label for="urlInput">Enter Website URL:</label>
-    <input type="text" id="urlInput" placeholder="enter the website link">
-    <button id="getWordCountButton">Get Word Count</button>
+    <h1>Word Count App</h1>
+    <div>
+      <label for="urlInput">Enter Website URL:</label>
+      <input type="text" id="urlInput" placeholder="enter the website link">
+      <button id="getWordCountButton">Get Word Count</button>
+    </div>
+    <div id="resultContainer">
+      <h2>Word Count:</h2>
+      <p id="wordCount"></p>
+    </div>
+    <div id="mediaContainer">
+      <h2>Media Details:</h2>
+      <div id="mediaList">
+        <!-- Media details will be dynamically added here -->
+      </div>
+    </div>
+    <div id="historyContainer">
+      <h2>Search History:</h2>
+      <table id="historyTable">
+        <thead>
+          <tr>
+            <th>URL</th>
+            <th>Count</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="historyBody">
+          <!-- Table rows will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
   </div>
-  <div id="resultContainer">
-    <h2>Word Count:</h2>
-    <p id="wordCount"></p>
-  </div>
-  <div id="historyContainer">
-    <h2>Search History:</h2>
-    <table id="historyTable">
-      <thead>
-        <tr>
-          <th>URL</th>
-          <th>Count</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="historyBody">
-        <!-- Table rows will be dynamically added here -->
-      </tbody>
-    </table>
-  </div>
-</div>
   <script src="script.js"></script>
 </body>
 </html>

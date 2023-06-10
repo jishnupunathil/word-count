@@ -1,4 +1,4 @@
-// Function to calculate word count
+// calculate word count
 function getWordCount(url, callback) {
   fetch(`/api/wordcount?url=${encodeURIComponent(url)}`)
     .then(response => response.json())
@@ -10,7 +10,7 @@ function getWordCount(url, callback) {
     });
 }
 
-// Function to send the word count to the server
+//send the word count to the server
 function saveWordCount(url, wordCount) {
   const data = { url, wordCount };
 
@@ -88,6 +88,34 @@ function getWordCountHistory() {
     });
 }
 
+
+// Function to display the media details on the webpage
+function displayMediaDetails(mediaDetails) {
+  const mediaList = document.getElementById('mediaList');
+  mediaList.innerHTML = '';
+
+  mediaDetails.forEach(media => {
+    const mediaElement = document.createElement(media.mediaType);
+    mediaElement.src = media.src;
+    mediaElement.alt = media.alt;
+    mediaElement.classList.add('media-item'); // Add CSS class
+
+    mediaList.appendChild(mediaElement);
+  });
+}
+
+// Function to fetch the media details from the server
+function getMediaDetails(url) {
+  fetch(`/api/media?url=${encodeURIComponent(url)}`)
+    .then(response => response.json())
+    .then(data => {
+      displayMediaDetails(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
 // Function to handle the button click event
 function handleButtonClick() {
   const urlInput = document.getElementById('urlInput');
@@ -104,6 +132,9 @@ function handleButtonClick() {
     // Display the word count in the <h2> tag
     const wordCountElement = document.getElementById('wordCount');
     wordCountElement.textContent = wordCount;
+
+    // Fetch and display the media details
+    getMediaDetails(url);
   });
 }
 

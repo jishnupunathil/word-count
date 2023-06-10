@@ -35,6 +35,45 @@ app.get('/api/wordcount', (req, res) => {
     });
 });
 
+// Retrieve Media Details
+app.get('/api/media', (req, res) => {
+  const { url } = req.query;
+
+  // Logic to fetch website content and retrieve media details
+  axios.get(url)
+    .then(response => {
+      const htmlContent = response.data;
+      const $ = cheerio.load(htmlContent);
+
+      // Select media elements using appropriate selectors
+      const mediaElements = $('img, video');
+
+      // Extract details for each media element
+      const mediaDetails = mediaElements.map((index, element) => {
+        const mediaType = element.name; // "img" or "video"
+        const src = $(element).attr('src');
+        const alt = $(element).attr('alt');
+        const dimensions = {
+          width: $(element).attr('width'),
+          height: $(element).attr('height')
+        };
+
+        return {
+          mediaType,
+          src,
+          alt,
+          dimensions
+        };
+      }).get();
+
+      // Return the media details as a JSON response
+      res.json(mediaDetails);
+    })
+    .catch(error => {
+      res.status(500).json({ error: 'Error retrieving media details' });
+    });
+});
+
 app.get('/api/history', (req, res) => {
   res.json(wordCounts);
 });
